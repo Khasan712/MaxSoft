@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="mt-5">
+
+        <h1>Tutorial: {{ course.course_name }}</h1>
+        <h4 class="mb-3">Modules</h4>
+
+        {% if course %}
+            <div class="accordion" id="accordionExample">
+
+                {% for module in course.modules.all %}
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <a href="{% url 'view_module' module.slug %}">{{module.module_name}}</a>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {% for lesson in module.lessons.all %}
+                                <a href="{% url 'view_module' module.slug %}"><p>{{ lesson.them }}</p></a>
+                            {% endfor %}
+                        </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+            
+        {% else %}
+            <h3>You have not created a course yet.</h3>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock content %}
+

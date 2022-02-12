@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+   <div class="container justify-content-center mt-5">
+    <div style="width: 50%">
+
+        <form action="" method="POST">{% csrf_token %}
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" id="formGroupExampleInput" placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="formGroupExampleInput2" placeholder="Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Password</label>
+                <input type="password" name="password1" class="form-control" id="formGroupExampleInput" placeholder="Password" required>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Re-password</label>
+                <input type="password" name="password2" class="form-control" id="formGroupExampleInput2" placeholder="Re-password" required>
+            </div>
+            <button class="btn btn-danger" type="submit">Register</button>
+        </form>
+
+    </div>
+   </div>
+
+  {% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mb-5 mt-5">
+    <div class="row" style="border: 1px solid #000;">
+        <div class="col-md-3" style="border: 1px solid #000;">
+            <hr>
+            <h5>{{modules.module_name}}</h5>
+            <hr>
+            <h6>Thems</h6>
+            {% for them in modules.lessons.all %}
+                <p># {{them.them}}<p>
+            {% endfor %}
+        </div>
+        <div class="col-6 col-md-9" style="border: 1px solid #000;">
+            <div class="m-3">
+                <h5>Mavzu: Dars 01</h5>
+                <video src="{{ modules.lessons.all.first.video.url }}" controls width="930px" height="500px"></video>
+
+                <h4>Mavzu haqida batafsil.</h4>
+                <p>{{ modules.lessons.alug }}</p>
+            </div>
+        </div>
+      </div>
+</div>
+{% endblock content %}
+
